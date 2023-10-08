@@ -90,24 +90,6 @@ const getTracksList = () => {
       album: "Soundz Made in Romania",
       time: "3:36",
     },
-    {
-      id: "11",
-      image: "img/icon/sprite.svg#icon-note",
-      song: "Morena",
-      moreInfo: "",
-      author: "Tom Boxer",
-      album: "Soundz Made in Romania",
-      time: "3:36",
-    },
-    {
-      id: "12",
-      image: "img/icon/sprite.svg#icon-note",
-      song: "Morena",
-      moreInfo: "",
-      author: "Tom Boxer",
-      album: "Soundz Made in Romania",
-      time: "3:36",
-    },
   ];
 
   return Trackslist;
