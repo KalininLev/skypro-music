@@ -1,22 +1,28 @@
-import "./AudioPlayer.css";
 import PlayTrackBar from "../PlayTrackBar/PlayTrackBar";
 import PlayerControls from "../PlayerControls/PlayerControls";
 import VolumeBar from "../VolumeBar/VolumeBar";
+import {
+  StyledAudioBar,
+  StyledAudioBarContent,
+  StyledAudioBarPlayer,
+  StyledAudioBarPlayerBlock,
+  StyledAudioBarPlayerProgress,
+} from "./AudioPlayerStyled.js";
 
 function AudioPlayer() {
   return (
-    <div className="bar">
-      <div className="bar__content">
-        <div className="bar__player-progress" />
-        <div className="bar__player-block">
-          <div className="bar__player player">
+    <StyledAudioBar>
+      <StyledAudioBarContent>
+        <StyledAudioBarPlayerProgress />
+        <StyledAudioBarPlayerBlock>
+          <StyledAudioBarPlayer>
             <PlayerControls />
             <PlayTrackBar />
-          </div>
+          </StyledAudioBarPlayer>
           <VolumeBar />
-        </div>
-      </div>
-    </div>
+        </StyledAudioBarPlayerBlock>
+      </StyledAudioBarContent>
+    </StyledAudioBar>
   );
 }
 

@@ -1,32 +1,37 @@
 import { useState } from "react";
-import "./NavMenu.css";
 import NavHomePageButton from "../NavHomePageButton/NavHomePageButton";
 import NavMyPlaylistButton from "../NavMyPlaylistButton/NavMyPlaylistButton";
 import NavSighInButton from "../NavSighInButton/NavSighInButton";
 import NavBurgerButton from "../NavBurgerButton/NavBurgerButton";
+import {
+  StyledNavMenu,
+  StyledNavMenuList,
+  StyledNavMenuLogo,
+  StyledNavMenuLogoImg,
+} from "./NavMenuStyled";
 
 function NavMenu() {
   const [isVilible, setVisibility] = useState(false);
 
   return (
     <nav className="main__nav nav">
-      <div className="nav__logo logo">
-        <img className="logo__image" src="img/logo.png" alt="logo" />
-      </div>
+      <StyledNavMenuLogo>
+        <StyledNavMenuLogoImg src="img/logo.png" alt="logo" />
+      </StyledNavMenuLogo>
       <NavBurgerButton
         handleClick={() => {
           setVisibility(!isVilible);
         }}
       />
-      <div className="nav__menu menu">
+      <StyledNavMenu>
         {isVilible && (
-          <ul className="menu__list">
+          <StyledNavMenuList>
             <NavHomePageButton />
             <NavMyPlaylistButton />
             <NavSighInButton />
-          </ul>
+          </StyledNavMenuList>
         )}
-      </div>
+      </StyledNavMenu>
     </nav>
   );
 }

@@ -1,10 +1,15 @@
+import {
+  StyledNavMenuBurger,
+  StyledNavMenuBurgerLine,
+} from "../NavMenu/NavMenuStyled";
+
 function NavBurgerButton({ handleClick }) {
   return (
-    <div onClick={handleClick} role="button" className="nav__burger burger">
-      <span className="burger__line" />
-      <span className="burger__line" />
-      <span className="burger__line" />
-    </div>
+    <StyledNavMenuBurger onClick={handleClick} role="button">
+      <StyledNavMenuBurgerLine />
+      <StyledNavMenuBurgerLine />
+      <StyledNavMenuBurgerLine />
+    </StyledNavMenuBurger>
   );
 }
 

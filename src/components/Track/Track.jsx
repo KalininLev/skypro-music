@@ -1,58 +1,76 @@
+import {
+  StyledTracklistPlaylistItem,
+  StyledTracklistPlaylistTrack,
+  StyledTracklistPlaylistTrackAlbum,
+  StyledTracklistPlaylistTrackAlbumLink,
+  StyledTracklistPlaylistTrackAuthor,
+  StyledTracklistPlaylistTrackAuthorLink,
+  StyledTracklistPlaylistTrackTime,
+  StyledTracklistPlaylistTrackTimeSvg,
+  StyledTracklistPlaylistTrackTimeText,
+  StyledTracklistPlaylistTrackTitle,
+  StyledTracklistPlaylistTrackTitleImage,
+  StyledTracklistPlaylistTrackTitleLink,
+  StyledTracklistPlaylistTrackTitleSpan,
+  StyledTracklistPlaylistTrackTitleSvg,
+} from "../Tracklist/TracklistStyled";
+
 function Track(props) {
   return (
-    <div className="playlist__item">
-      <div className="playlist__track track">
-        <div className="track__title">
-          <div className="track__title-image">
-            <svg className="track__title-svg" alt="music">
+    <StyledTracklistPlaylistItem>
+      <StyledTracklistPlaylistTrack>
+        <StyledTracklistPlaylistTrackTitle>
+          <StyledTracklistPlaylistTrackTitleImage>
+            <StyledTracklistPlaylistTrackTitleSvg alt="music">
               <use xlinkHref="img/icon/sprite.svg#icon-note" />
-            </svg>
-          </div>
+            </StyledTracklistPlaylistTrackTitleSvg>
+          </StyledTracklistPlaylistTrackTitleImage>
           <div
             className={`track__title-text ${
               props.isLoading ? "skeletons" : ""
             }`}
           >
-            <a
-              className="track__title-link"
+            <StyledTracklistPlaylistTrackTitleLink
               style={props.isLoading ? { color: "transparent" } : {}}
               href="http://"
             >
               {props.isLoading ? "waitingTrack" : props.song}{" "}
-              <span className="track__title-span">
+              <StyledTracklistPlaylistTrackTitleSpan>
                 {props.isLoading ? "" : props.moreInfo}
-              </span>
-            </a>
+              </StyledTracklistPlaylistTrackTitleSpan>
+            </StyledTracklistPlaylistTrackTitleLink>
           </div>
-        </div>
-        <div className={`track__author ${props.isLoading ? "skeletons" : ""}`}>
-          <a
-            className="track__author-link"
+        </StyledTracklistPlaylistTrackTitle>
+        <StyledTracklistPlaylistTrackAuthor
+          className={`track__author ${props.isLoading ? "skeletons" : ""}`}
+        >
+          <StyledTracklistPlaylistTrackAuthorLink
             style={props.isLoading ? { color: "transparent" } : {}}
             href="http://"
           >
             {props.isLoading ? "waitingAuthor" : props.author}
-          </a>
-        </div>
-        <div className={`track__album ${props.isLoading ? "skeletons" : ""}`}>
-          <a
-            className="track__album-link"
+          </StyledTracklistPlaylistTrackAuthorLink>
+        </StyledTracklistPlaylistTrackAuthor>
+        <StyledTracklistPlaylistTrackAlbum
+          className={`track__album ${props.isLoading ? "skeletons" : ""}`}
+        >
+          <StyledTracklistPlaylistTrackAlbumLink
             style={props.isLoading ? { color: "transparent" } : {}}
             href="http://"
           >
             {props.isLoading ? "waitingAlbum" : props.album}
-          </a>
-        </div>
-        <div className="track__time">
-          <svg className="track__time-svg" alt="time">
+          </StyledTracklistPlaylistTrackAlbumLink>
+        </StyledTracklistPlaylistTrackAlbum>
+        <StyledTracklistPlaylistTrackTime>
+          <StyledTracklistPlaylistTrackTimeSvg alt="time">
             <use xlinkHref="img/icon/sprite.svg#icon-like" />
-          </svg>
-          <span className="track__time-text">
+          </StyledTracklistPlaylistTrackTimeSvg>
+          <StyledTracklistPlaylistTrackTimeText>
             {props.isLoading ? "0:00" : props.time}
-          </span>
-        </div>
-      </div>
-    </div>
+          </StyledTracklistPlaylistTrackTimeText>
+        </StyledTracklistPlaylistTrackTime>
+      </StyledTracklistPlaylistTrack>
+    </StyledTracklistPlaylistItem>
   );
 }
 

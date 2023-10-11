@@ -1,27 +1,36 @@
-import "./Tracklist.css";
 import FilterBar from "../FilterBar/FilterBar";
 import Playlist from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
+import {
+  StyledCol01,
+  StyledCol02,
+  StyledCol03,
+  StyledCol04,
+  StyledTracklistCenterblockContent,
+  StyledTracklistCenterblockContentTitle,
+  StyledTracklistCenterblockContentTitleSvg,
+  StyledTracklistCenterblockH2,
+} from "./TracklistStyled";
 
 function Tracklist({ isLoading }) {
   return (
     <div className="main__centerblock centerblock">
       <SearchBar />
-      <h2 className="centerblock__h2">Треки</h2>
+      <StyledTracklistCenterblockH2>Треки</StyledTracklistCenterblockH2>
       <FilterBar />
-      <div className="centerblock__content">
-        <div className="content__title playlist-title">
-          <div className="playlist-title__col col01">Трек</div>
-          <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-          <div className="playlist-title__col col03">АЛЬБОМ</div>
-          <div className="playlist-title__col col04">
-            <svg className="playlist-title__svg" alt="time">
+      <StyledTracklistCenterblockContent>
+        <StyledTracklistCenterblockContentTitle>
+          <StyledCol01>Трек</StyledCol01>
+          <StyledCol02>ИСПОЛНИТЕЛЬ</StyledCol02>
+          <StyledCol03>АЛЬБОМ</StyledCol03>
+          <StyledCol04>
+            <StyledTracklistCenterblockContentTitleSvg alt="time">
               <use xlinkHref="img/icon/sprite.svg#icon-watch" />
-            </svg>
-          </div>
-        </div>
+            </StyledTracklistCenterblockContentTitleSvg>
+          </StyledCol04>
+        </StyledTracklistCenterblockContentTitle>
         <Playlist isLoading={isLoading} />
-      </div>
+      </StyledTracklistCenterblockContent>
     </div>
   );
 }
