@@ -8,13 +8,14 @@ import {
   StyledNavMenuList,
   StyledNavMenuLogo,
   StyledNavMenuLogoImg,
+  StyledNavMenuNav,
 } from "./NavMenuStyled";
 
 function NavMenu() {
   const [isVilible, setVisibility] = useState(false);
 
   return (
-    <nav className="main__nav nav">
+    <StyledNavMenuNav>
       <StyledNavMenuLogo>
         <StyledNavMenuLogoImg src="img/logo.png" alt="logo" />
       </StyledNavMenuLogo>
@@ -32,7 +33,7 @@ function NavMenu() {
           </StyledNavMenuList>
         )}
       </StyledNavMenu>
-    </nav>
+    </StyledNavMenuNav>
   );
 }
 

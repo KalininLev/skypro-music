@@ -10,11 +10,12 @@ import {
   StyledTracklistCenterblockContentTitle,
   StyledTracklistCenterblockContentTitleSvg,
   StyledTracklistCenterblockH2,
+  StyledTracklistCenterblockMain,
 } from "./TracklistStyled";
 
 function Tracklist({ isLoading }) {
   return (
-    <div className="main__centerblock centerblock">
+    <StyledTracklistCenterblockMain>
       <SearchBar />
       <StyledTracklistCenterblockH2>Треки</StyledTracklistCenterblockH2>
       <FilterBar />
@@ -31,7 +32,7 @@ function Tracklist({ isLoading }) {
         </StyledTracklistCenterblockContentTitle>
         <Playlist isLoading={isLoading} />
       </StyledTracklistCenterblockContent>
-    </div>
+    </StyledTracklistCenterblockMain>
   );
 }
 

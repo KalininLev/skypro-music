@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import { gradient } from "../../StyledApp";
 
 //Sidebar.jsx
+export const StyledSidebarMain = styled.div`
+  max-width: 418px;
+  padding: 20px 90px 20px 78px;
+`;
+
 export const StyledSidebarBlock = styled.div`
   height: 100%;
   padding: 240px 0 0 0;
@@ -36,6 +42,20 @@ export const StyledSidebarItem = styled.div`
   &:not(:last-child) {
     margin-bottom: 30px;
   }
+`;
+
+export const StyledSidebarSkeletons = styled.div`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 0, 0),
+    rgb(77, 77, 77),
+    rgb(150, 150, 150)
+  );
+  background-size: 400% 400%;
+  animation: ${gradient} 5s ease infinite;
+  transform: translate3d(0, 0, 0);
 `;
 
 export const StyledSidebarLink = styled.a`

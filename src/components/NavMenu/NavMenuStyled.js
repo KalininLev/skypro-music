@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 //NavMenu.jsx
+export const StyledNavMenuNav = styled.nav`
+  width: 244px;
+  background-color: #181818;
+  padding: 20px 0 20px 36px;
+`;
+
 export const StyledNavMenuLogo = styled.div`
   width: 113.33px;
   height: 43px;

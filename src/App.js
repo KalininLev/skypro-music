@@ -5,6 +5,12 @@ import NavMenu from "./components/NavMenu/NavMenu";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Tracklist from "./components/Tracklist/Tracklist";
 import delay from "./modules/delay";
+import {
+  StyledApp,
+  StyledAppContainer,
+  StyledAppMain,
+  StyledAppWrapper,
+} from "./StyledApp";
 
 function App() {
   const [isLoading, setLoadingStatus] = useState(true);
@@ -15,19 +21,19 @@ function App() {
     });
   }, [false]);
   return (
-    <div className="app">
-      <div className="wrapper">
-        <div className="container">
-          <main className="main">
+    <StyledApp>
+      <StyledAppWrapper>
+        <StyledAppContainer>
+          <StyledAppMain>
             <NavMenu />
             <Tracklist isLoading={isLoading} />
             <Sidebar isLoading={isLoading} />
-          </main>
+          </StyledAppMain>
           <AudioPlayer />
           <footer className="footer" />
-        </div>
-      </div>
-    </div>
+        </StyledAppContainer>
+      </StyledAppWrapper>
+    </StyledApp>
   );
 }
 

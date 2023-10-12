@@ -5,17 +5,19 @@ import {
   StyledSidebarItem,
   StyledSidebarLink,
   StyledSidebarList,
+  StyledSidebarMain,
+  StyledSidebarSkeletons,
 } from "./SidebarStyled";
 
 function Sidebar({ isLoading }) {
   return (
-    <div className="main__sidebar sidebar">
+    <StyledSidebarMain>
       <MyProfile />
       <StyledSidebarBlock>
         <StyledSidebarList>
           <StyledSidebarItem>
             {isLoading ? (
-              <div className="skeletons" />
+              <StyledSidebarSkeletons className="skeletons" />
             ) : (
               <StyledSidebarLink href="/#">
                 <StyledSidebarImg
@@ -27,7 +29,7 @@ function Sidebar({ isLoading }) {
           </StyledSidebarItem>
           <StyledSidebarItem>
             {isLoading ? (
-              <div className="skeletons" />
+              <StyledSidebarSkeletons className="skeletons" />
             ) : (
               <StyledSidebarLink href="/#">
                 <StyledSidebarImg
@@ -39,7 +41,7 @@ function Sidebar({ isLoading }) {
           </StyledSidebarItem>
           <StyledSidebarItem>
             {isLoading ? (
-              <div className="skeletons" />
+              <StyledSidebarSkeletons className="skeletons" />
             ) : (
               <StyledSidebarLink href="/#">
                 <StyledSidebarImg
@@ -51,7 +53,7 @@ function Sidebar({ isLoading }) {
           </StyledSidebarItem>
         </StyledSidebarList>
       </StyledSidebarBlock>
-    </div>
+    </StyledSidebarMain>
   );
 }
 

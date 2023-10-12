@@ -1,6 +1,15 @@
 import styled from "styled-components";
+import { gradient } from "../../StyledApp";
 
 //Tracklist.jsx
+export const StyledTracklistCenterblockMain = styled.div`
+  width: auto;
+  -webkit-box-flex: 3;
+  -ms-flex-positive: 3;
+  flex-grow: 3;
+  padding: 20px 40px 20px 111px;
+`;
+
 export const StyledTracklistCenterblockH2 = styled.h2`
   font-style: normal;
   font-weight: 400;
@@ -296,6 +305,8 @@ export const StyledTracklistPlaylistTrackTitleSvg = styled.svg`
   stroke: #4e4e4e;
 `;
 
+export const StyledTracklistPlaylistTrackTitleText = styled.div``;
+
 export const StyledTracklistPlaylistTrackTitleLink = styled.a`
   font-style: normal;
   font-weight: 400;
@@ -361,3 +372,5 @@ export const StyledTracklistPlaylistTrackTimeText = styled.span`
   text-align: right;
   color: #696969;
 `;
+
+export const StyledTracklistSkeletons = styled.div``;

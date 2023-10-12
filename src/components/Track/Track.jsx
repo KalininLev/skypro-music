@@ -13,6 +13,7 @@ import {
   StyledTracklistPlaylistTrackTitleLink,
   StyledTracklistPlaylistTrackTitleSpan,
   StyledTracklistPlaylistTrackTitleSvg,
+  StyledTracklistPlaylistTrackTitleText,
 } from "../Tracklist/TracklistStyled";
 
 function Track(props) {
@@ -25,7 +26,7 @@ function Track(props) {
               <use xlinkHref="img/icon/sprite.svg#icon-note" />
             </StyledTracklistPlaylistTrackTitleSvg>
           </StyledTracklistPlaylistTrackTitleImage>
-          <div
+          <StyledTracklistPlaylistTrackTitleText
             className={`track__title-text ${
               props.isLoading ? "skeletons" : ""
             }`}
@@ -39,7 +40,7 @@ function Track(props) {
                 {props.isLoading ? "" : props.moreInfo}
               </StyledTracklistPlaylistTrackTitleSpan>
             </StyledTracklistPlaylistTrackTitleLink>
-          </div>
+          </StyledTracklistPlaylistTrackTitleText>
         </StyledTracklistPlaylistTrackTitle>
         <StyledTracklistPlaylistTrackAuthor
           className={`track__author ${props.isLoading ? "skeletons" : ""}`}
