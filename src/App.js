@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./StyledApp";
 import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import NavMenu from "./components/NavMenu/NavMenu";
 import Sidebar from "./components/Sidebar/Sidebar";
