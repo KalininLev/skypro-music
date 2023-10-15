@@ -1,7 +1,5 @@
 import { useState } from "react";
-import NavHomePageButton from "../NavHomePageButton/NavHomePageButton";
-import NavMyPlaylistButton from "../NavMyPlaylistButton/NavMyPlaylistButton";
-import NavSighInButton from "../NavSighInButton/NavSighInButton";
+import { NavButton } from "../NavMenuButtons/NavMenuButtons";
 import NavBurgerButton from "../NavBurgerButton/NavBurgerButton";
 import {
   StyledNavMenu,
@@ -27,9 +25,9 @@ function NavMenu() {
       <StyledNavMenu>
         {isVilible && (
           <StyledNavMenuList>
-            <NavHomePageButton />
-            <NavMyPlaylistButton />
-            <NavSighInButton />
+            <NavButton Name="Главное" Link="/" />
+            <NavButton Name="Мой плейлист" Link="/favorites" />
+            <NavButton Name="Войти" Link="/login" />
           </StyledNavMenuList>
         )}
       </StyledNavMenu>

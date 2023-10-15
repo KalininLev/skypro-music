@@ -19,7 +19,7 @@ function Sidebar({ isLoading }) {
             {isLoading ? (
               <StyledSidebarSkeletons className="skeletons" />
             ) : (
-              <StyledSidebarLink href="/#">
+              <StyledSidebarLink to="/category/day's-playlist">
                 <StyledSidebarImg
                   src="img/playlist01.png"
                   alt="day's playlist"
@@ -31,7 +31,7 @@ function Sidebar({ isLoading }) {
             {isLoading ? (
               <StyledSidebarSkeletons className="skeletons" />
             ) : (
-              <StyledSidebarLink href="/#">
+              <StyledSidebarLink to="/category/100-dance-hits">
                 <StyledSidebarImg
                   src="img/playlist02.png"
                   alt="day's playlist"
@@ -43,7 +43,7 @@ function Sidebar({ isLoading }) {
             {isLoading ? (
               <StyledSidebarSkeletons className="skeletons" />
             ) : (
-              <StyledSidebarLink href="/#">
+              <StyledSidebarLink to="/category/indie-charge">
                 <StyledSidebarImg
                   src="img/playlist03.png"
                   alt="day's playlist"
