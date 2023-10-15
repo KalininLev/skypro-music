@@ -1,10 +1,12 @@
+import { StyledSidebarIcon } from "../Sidebar/SidebarStyled";
+
 function SidebarLogOutButton() {
   return (
-    <div className="sidebar__icon">
+    <StyledSidebarIcon>
       <svg alt="logout">
         <use xlinkHref="img/icon/sprite.svg#logout" />
       </svg>
-    </div>
+    </StyledSidebarIcon>
   );
 }
 

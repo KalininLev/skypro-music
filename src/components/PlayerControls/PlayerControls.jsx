@@ -1,14 +1,15 @@
+import { StyledAudioPlayerControls } from "../AudioPlayer/AudioPlayerStyled";
 import PlayerButton from "../PlayerButton/PlayerButton";
 
 function PlayerControls() {
   return (
-    <div className="player__controls">
+    <StyledAudioPlayerControls>
       <PlayerButton buttonName="prev" />
       <PlayerButton buttonName="play" />
       <PlayerButton buttonName="next" />
       <PlayerButton buttonName="repeat" />
       <PlayerButton buttonName="shuffle" />
-    </div>
+    </StyledAudioPlayerControls>
   );
 }
 

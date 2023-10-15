@@ -1,37 +1,55 @@
+import {
+  StyledAudioPlayerTrackPlay,
+  StyledAudioPlayerTrackPlayAlbum,
+  StyledAudioPlayerTrackPlayAlbumLink,
+  StyledAudioPlayerTrackPlayAuthor,
+  StyledAudioPlayerTrackPlayAuthorLink,
+  StyledAudioPlayerTrackPlayContain,
+  StyledAudioPlayerTrackPlayDislikeSvg,
+  StyledAudioPlayerTrackPlayImage,
+  StyledAudioPlayerTrackPlayLike,
+  StyledAudioPlayerTrackPlayLikeDis,
+  StyledAudioPlayerTrackPlayLikeSvg,
+  StyledAudioPlayerTrackPlaySvg,
+} from "../AudioPlayer/AudioPlayerStyled";
+
 function PlayTrackBar() {
   return (
-    <div className="player__track-play track-play">
-      <div className="track-play__contain">
-        <div className="track-play__image">
-          <svg className="track-play__svg" alt="music">
+    <StyledAudioPlayerTrackPlay>
+      <StyledAudioPlayerTrackPlayContain>
+        <StyledAudioPlayerTrackPlayImage>
+          <StyledAudioPlayerTrackPlaySvg alt="music">
             <use xlinkHref="img/icon/sprite.svg#icon-note" />
-          </svg>
-        </div>
-        <div className="track-play__author">
-          <a className="track-play__author-link" href="http://">
+          </StyledAudioPlayerTrackPlaySvg>
+        </StyledAudioPlayerTrackPlayImage>
+        <StyledAudioPlayerTrackPlayAuthor>
+          <StyledAudioPlayerTrackPlayAuthorLink href="http://">
             Ты та...
-          </a>
-        </div>
-        <div className="track-play__album">
-          <a className="track-play__album-link" href="http://">
+          </StyledAudioPlayerTrackPlayAuthorLink>
+        </StyledAudioPlayerTrackPlayAuthor>
+        <StyledAudioPlayerTrackPlayAlbum>
+          <StyledAudioPlayerTrackPlayAlbumLink href="http://">
             Баста
-          </a>
-        </div>
-      </div>
+          </StyledAudioPlayerTrackPlayAlbumLink>
+        </StyledAudioPlayerTrackPlayAlbum>
+      </StyledAudioPlayerTrackPlayContain>
 
-      <div className="track-play__like-dis">
-        <div className="track-play__like _btn-icon">
-          <svg className="track-play__like-svg" alt="like">
+      <StyledAudioPlayerTrackPlayLikeDis>
+        <StyledAudioPlayerTrackPlayLike className="_btn-icon">
+          <StyledAudioPlayerTrackPlayLikeSvg alt="like">
             <use xlinkHref="img/icon/sprite.svg#icon-like" />
-          </svg>
-        </div>
-        <div className="track-play__dislike _btn-icon">
-          <svg className="track-play__dislike-svg" alt="dislike">
+          </StyledAudioPlayerTrackPlayLikeSvg>
+        </StyledAudioPlayerTrackPlayLike>
+        <dStyledAudioPlayerTrackPlayDislike
+          className="_btn-icon"
+          style={{ marginLeft: 28.5 + "px" }}
+        >
+          <StyledAudioPlayerTrackPlayDislikeSvg alt="dislike">
             <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
-          </svg>
-        </div>
-      </div>
-    </div>
+          </StyledAudioPlayerTrackPlayDislikeSvg>
+        </dStyledAudioPlayerTrackPlayDislike>
+      </StyledAudioPlayerTrackPlayLikeDis>
+    </StyledAudioPlayerTrackPlay>
   );
 }
 

@@ -1,6 +1,11 @@
 import { useState } from "react";
 import ButtonsForFilter from "../FilterButton/FilterButton";
 import getTracksList from "../../modules/getTrackList";
+import {
+  StyledTracklistCenterblockFilter,
+  StyledTracklistCenterblockFilterTitle,
+  StyledTracklistCenterblockFilterWrapper,
+} from "../Tracklist/TracklistStyled";
 
 function FilterBar() {
   const authorList = getTracksList().map((track) => ({
@@ -40,9 +45,11 @@ function FilterBar() {
   const [selected, setSelected] = useState(0);
 
   return (
-    <div className="centerblock__filter filter">
-      <div className="filter__wrapper">
-        <div className="filter__title">Искать по:</div>
+    <StyledTracklistCenterblockFilter>
+      <StyledTracklistCenterblockFilterWrapper>
+        <StyledTracklistCenterblockFilterTitle>
+          Искать по:
+        </StyledTracklistCenterblockFilterTitle>
         <ButtonsForFilter
           setVisibility={() => {
             setVisibilityFirst(!isVisibleFirst);
@@ -93,8 +100,8 @@ function FilterBar() {
           itemId={3}
           selected={selected}
         />
-      </div>
-    </div>
+      </StyledTracklistCenterblockFilterWrapper>
+    </StyledTracklistCenterblockFilter>
   );
 }
 

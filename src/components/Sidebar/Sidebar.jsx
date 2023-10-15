@@ -1,54 +1,59 @@
-import "./Sidebar.css";
 import MyProfile from "../MyProfile/MyProfile";
+import {
+  StyledSidebarBlock,
+  StyledSidebarImg,
+  StyledSidebarItem,
+  StyledSidebarLink,
+  StyledSidebarList,
+  StyledSidebarMain,
+  StyledSidebarSkeletons,
+} from "./SidebarStyled";
 
 function Sidebar({ isLoading }) {
   return (
-    <div className="main__sidebar sidebar">
+    <StyledSidebarMain>
       <MyProfile />
-      <div className="sidebar__block">
-        <div className="sidebar__list">
-          <div className="sidebar__item">
+      <StyledSidebarBlock>
+        <StyledSidebarList>
+          <StyledSidebarItem>
             {isLoading ? (
-              <div className="skeletons" />
+              <StyledSidebarSkeletons className="skeletons" />
             ) : (
-              <a className="sidebar__link" href="/#">
-                <img
-                  className="sidebar__img"
+              <StyledSidebarLink href="/#">
+                <StyledSidebarImg
                   src="img/playlist01.png"
                   alt="day's playlist"
                 />
-              </a>
+              </StyledSidebarLink>
             )}
-          </div>
-          <div className="sidebar__item">
+          </StyledSidebarItem>
+          <StyledSidebarItem>
             {isLoading ? (
-              <div className="skeletons" />
+              <StyledSidebarSkeletons className="skeletons" />
             ) : (
-              <a className="sidebar__link" href="/#">
-                <img
-                  className="sidebar__img"
+              <StyledSidebarLink href="/#">
+                <StyledSidebarImg
                   src="img/playlist02.png"
                   alt="day's playlist"
                 />
-              </a>
+              </StyledSidebarLink>
             )}
-          </div>
-          <div className="sidebar__item">
+          </StyledSidebarItem>
+          <StyledSidebarItem>
             {isLoading ? (
-              <div className="skeletons" />
+              <StyledSidebarSkeletons className="skeletons" />
             ) : (
-              <a className="sidebar__link" href="/#">
-                <img
-                  className="sidebar__img"
+              <StyledSidebarLink href="/#">
+                <StyledSidebarImg
                   src="img/playlist03.png"
                   alt="day's playlist"
                 />
-              </a>
+              </StyledSidebarLink>
             )}
-          </div>
-        </div>
-      </div>
-    </div>
+          </StyledSidebarItem>
+        </StyledSidebarList>
+      </StyledSidebarBlock>
+    </StyledSidebarMain>
   );
 }
 

@@ -1,10 +1,10 @@
+import { StyledNavMenuItem, StyledNavMenuLink } from "../NavMenu/NavMenuStyled";
+
 function NavHomePageButton() {
   return (
-    <li className="menu__item">
-      <a href="/#" className="menu__link">
-        Главное
-      </a>
-    </li>
+    <StyledNavMenuItem>
+      <StyledNavMenuLink href="/#">Главное</StyledNavMenuLink>
+    </StyledNavMenuItem>
   );
 }
 

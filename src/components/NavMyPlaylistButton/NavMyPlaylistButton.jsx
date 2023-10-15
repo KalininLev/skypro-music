@@ -1,10 +1,10 @@
+import { StyledNavMenuItem, StyledNavMenuLink } from "../NavMenu/NavMenuStyled";
+
 function NavMyPlaylistButton() {
   return (
-    <li className="menu__item">
-      <a href="/#" className="menu__link">
-        Мой плейлист
-      </a>
-    </li>
+    <StyledNavMenuItem>
+      <StyledNavMenuLink href="/#">Мой плейлист</StyledNavMenuLink>
+    </StyledNavMenuItem>
   );
 }
 

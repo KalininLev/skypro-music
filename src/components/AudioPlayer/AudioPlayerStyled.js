@@ -1,12 +1,14 @@
-.bar {
+import styled from "styled-components";
+
+export const StyledAudioBar = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background: rgba(28, 28, 28, 0.5);
-}
+`;
 
-.bar__content {
+export const StyledAudioBarContent = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,15 +16,15 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-}
+`;
 
-.bar__player-progress {
+export const StyledAudioBarPlayerProgress = styled.div`
   width: 100%;
   height: 5px;
   background: #2e2e2e;
-}
+`;
 
-.bar__player-block {
+export const StyledAudioBarPlayerBlock = styled.div`
   height: 73px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,9 +36,9 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
+`;
 
-.bar__player {
+export const StyledAudioBarPlayer = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,9 +52,9 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-}
+`;
 
-.bar__volume-block {
+export const StyledAudioBarVolumeBlock = styled.div`
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,9 +63,9 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 0 92px 0 0;
-}
+`;
 
-.player__controls {
+export const StyledAudioPlayerControls = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,81 +74,12 @@
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 0 27px 0 31px;
-}
+`;
 
-.player__btn-prev,
-.player__btn-play,
-.player__btn-next,
-.player__btn-repeat,
-.player__btn-shuffle {
-  padding: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
+//PlayerButton.jsx
 
-.player__btn-prev {
-  margin-right: 23px;
-}
-
-.player__btn-prev-svg {
-  width: 15px;
-  height: 14px;
-}
-
-.player__btn-play {
-  margin-right: 23px;
-}
-
-.player__btn-play-svg {
-  width: 22px;
-  height: 20px;
-  fill: #d9d9d9;
-}
-
-.player__btn-next {
-  margin-right: 28px;
-  fill: #a53939;
-}
-
-.player__btn-next-svg {
-  width: 15px;
-  height: 14px;
-  fill: inherit;
-  stroke: #d9d9d9;
-}
-
-.player__btn-repeat {
-  margin-right: 24px;
-}
-
-.player__btn-repeat-svg {
-  width: 18px;
-  height: 12px;
-  fill: transparent;
-  stroke: #696969;
-}
-
-.player__btn-shuffle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.player__btn-shuffle-svg {
-  width: 19px;
-  height: 12px;
-  fill: transparent;
-  stroke: #696969;
-}
-
-.player__track-play {
+//PlayerTrackBar.jsx
+export const StyledAudioPlayerTrackPlay = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,9 +87,9 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-}
+`;
 
-.track-play__contain {
+export const StyledAudioPlayerTrackPlayContain = styled.div`
   width: auto;
   display: -ms-grid;
   display: grid;
@@ -166,9 +99,9 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
+`;
 
-.track-play__image {
+export const StyledAudioPlayerTrackPlayImage = styled.div`
   width: 51px;
   height: 51px;
   background-color: #313131;
@@ -186,47 +119,47 @@
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: image;
-}
+`;
 
-.track-play__svg {
+export const StyledAudioPlayerTrackPlaySvg = styled.svg`
   width: 18px;
   height: 17px;
   fill: transparent;
   stroke: #4e4e4e;
-}
+`;
 
-.track-play__author {
+export const StyledAudioPlayerTrackPlayAuthor = styled.div`
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: author;
   min-width: 49px;
-}
+`;
 
-.track-play__author-link {
+export const StyledAudioPlayerTrackPlayAuthorLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   white-space: nowrap;
-}
+`;
 
-.track-play__album {
+export const StyledAudioPlayerTrackPlayAlbum = styled.div`
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: album;
   min-width: 49px;
-}
+`;
 
-.track-play__album-link {
+export const StyledAudioPlayerTrackPlayAlbumLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
   color: #ffffff;
-}
+`;
 
-.track-play__like-dis {
+export const StyledAudioPlayerTrackPlayLikeDis = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -238,32 +171,33 @@
   -ms-flex-align: center;
   align-items: center;
   margin-left: 26%;
-}
+`;
 
-.track-play__like,
-.track-play__dislike {
+export const StyledAudioPlayerTrackPlayLike = styled.div`
   padding: 5px;
-}
+`;
 
-.track-play__like-svg {
+export const StyledAudioPlayerTrackPlayLikeSvg = styled.svg`
   width: 14px;
   height: 12px;
   fill: transparent;
   stroke: #696969;
-}
+`;
 
-.track-play__dislike {
+export const StyledAudioPlayerTrackPlayDislike = styled.div`
+  padding: 5px;
   margin-left: 28.5px;
-}
+`;
 
-.track-play__dislike-svg {
+export const StyledAudioPlayerTrackPlayDislikeSvg = styled.svg`
   width: 14.34px;
   height: 13px;
   fill: transparent;
   stroke: #696969;
-}
+`;
 
-.volume__content {
+//VolumeBar.jsx
+export const StyledAudioPlayerVolumeContent = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,24 +211,24 @@
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: end;
-}
+`;
 
-.volume__image {
+export const StyledAudioPlayerVolumeImage = styled.div`
   width: 13px;
   height: 18px;
   margin-right: 17px;
-}
+`;
 
-.volume__svg {
+export const StyledAudioPlayerVolumeImageSvg = styled.svg`
   width: 13px;
   height: 18px;
   fill: transparent;
-}
+`;
 
-.volume__progress {
+export const StyledAudioPlayerVolumeProgress = styled.div`
   width: 109px;
-}
+`;
 
-.volume__progress-line {
+export const StyledAudioPlayerVolumeProgressLine = styled.input`
   width: 109px;
-}
+`;

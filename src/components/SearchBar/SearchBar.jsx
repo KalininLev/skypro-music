@@ -1,16 +1,21 @@
+import {
+  StyledTracklistCenterblockSearch,
+  StyledTracklistCenterblockSearchSvg,
+  StyledTracklistCenterblockSearchText,
+} from "../Tracklist/TracklistStyled";
+
 function SearchBar() {
   return (
-    <div className="centerblock__search search">
-      <svg className="search__svg">
+    <StyledTracklistCenterblockSearch>
+      <StyledTracklistCenterblockSearchSvg>
         <use xlinkHref="img/icon/sprite.svg#icon-search" />
-      </svg>
-      <input
-        className="search__text"
+      </StyledTracklistCenterblockSearchSvg>
+      <StyledTracklistCenterblockSearchText
         type="search"
         placeholder="Поиск"
         name="search"
       />
-    </div>
+    </StyledTracklistCenterblockSearch>
   );
 }
 

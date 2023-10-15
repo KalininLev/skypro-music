@@ -1,3 +1,10 @@
+import {
+  StyledTracklistCenterblockFilterBox,
+  StyledTracklistCenterblockFilterButton,
+  StyledTracklistCenterblockFilterDropdownItem,
+  StyledTracklistCenterblockFilterDropdownToggle,
+} from "../Tracklist/TracklistStyled";
+
 function ButtonsForFilter({
   buttonName,
   setVisibility,
@@ -7,28 +14,28 @@ function ButtonsForFilter({
   itemId,
 }) {
   return (
-    <div className="filter__box">
-      <div
+    <StyledTracklistCenterblockFilterBox>
+      <StyledTracklistCenterblockFilterButton
         onClick={setVisibility}
         role="button"
-        className={`filter__button ${
+        className={` ${
           selected === itemId ? "filter__button_active" : ""
         } _btn-text`}
       >
         {buttonName}
-      </div>
+      </StyledTracklistCenterblockFilterButton>
       {isVisible && (
-        <ul className="filter__dropdown-toggle">
+        <StyledTracklistCenterblockFilterDropdownToggle>
           {list.map((item) => (
             <li key={item.id}>
-              <a className="filter__dropdown-item" href="/#">
+              <StyledTracklistCenterblockFilterDropdownItem href="/#">
                 {item.info}
-              </a>
+              </StyledTracklistCenterblockFilterDropdownItem>
             </li>
           ))}
-        </ul>
+        </StyledTracklistCenterblockFilterDropdownToggle>
       )}
-    </div>
+    </StyledTracklistCenterblockFilterBox>
   );
 }
 
