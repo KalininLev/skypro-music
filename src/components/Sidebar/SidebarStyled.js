@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { gradient } from "../../StyledApp";
+import { gradient } from "../../pages/main/StyledApp";
 
 //Sidebar.jsx
 export const StyledSidebarMain = styled.div`
@@ -58,7 +59,7 @@ export const StyledSidebarSkeletons = styled.div`
   transform: translate3d(0, 0, 0);
 `;
 
-export const StyledSidebarLink = styled.a`
+export const StyledSidebarLink = styled(Link)`
   width: 100%;
   height: 100%;
 `;

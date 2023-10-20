@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { gradient } from "../../StyledApp";
 
 //Tracklist.jsx
 export const StyledTracklistCenterblockMain = styled.div`
