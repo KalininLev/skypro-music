@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavButton } from "../NavMenuButtons/NavMenuButtons";
-import NavBurgerButton from "../NavBurgerButton/NavBurgerButton";
+import { NavBurgerButton } from "../NavBurgerButton/NavBurgerButton";
 import {
   StyledNavMenu,
   StyledNavMenuList,
@@ -9,7 +9,7 @@ import {
   StyledNavMenuNav,
 } from "./NavMenuStyled";
 
-function NavMenu() {
+export function NavMenu() {
   const [isVilible, setVisibility] = useState(false);
 
   return (
@@ -34,5 +34,3 @@ function NavMenu() {
     </StyledNavMenuNav>
   );
 }
-
-export default NavMenu;

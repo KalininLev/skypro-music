@@ -1,4 +1,4 @@
-function PlayerButton(props) {
+export function PlayerButton(props) {
   return (
     <div className={`player__btn-${props.buttonName} _btn`}>
       <svg
@@ -9,5 +9,3 @@ function PlayerButton(props) {
     </div>
   );
 }
-
-export default PlayerButton;

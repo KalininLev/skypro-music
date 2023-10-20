@@ -4,7 +4,7 @@ import {
   StyledTracklistCenterblockSearchText,
 } from "../Tracklist/TracklistStyled";
 
-function SearchBar() {
+export function SearchBar() {
   return (
     <StyledTracklistCenterblockSearch>
       <StyledTracklistCenterblockSearchSvg>
@@ -18,5 +18,3 @@ function SearchBar() {
     </StyledTracklistCenterblockSearch>
   );
 }
-
-export default SearchBar;

@@ -13,7 +13,7 @@ import {
   StyledAudioPlayerTrackPlaySvg,
 } from "../AudioPlayer/AudioPlayerStyled";
 
-function PlayTrackBar() {
+export function PlayTrackBar({ track }) {
   return (
     <StyledAudioPlayerTrackPlay>
       <StyledAudioPlayerTrackPlayContain>
@@ -24,12 +24,12 @@ function PlayTrackBar() {
         </StyledAudioPlayerTrackPlayImage>
         <StyledAudioPlayerTrackPlayAuthor>
           <StyledAudioPlayerTrackPlayAuthorLink href="http://">
-            Ты та...
+            {track ? track.author : ""}
           </StyledAudioPlayerTrackPlayAuthorLink>
         </StyledAudioPlayerTrackPlayAuthor>
         <StyledAudioPlayerTrackPlayAlbum>
           <StyledAudioPlayerTrackPlayAlbumLink href="http://">
-            Баста
+            {track ? track.name : ""}
           </StyledAudioPlayerTrackPlayAlbumLink>
         </StyledAudioPlayerTrackPlayAlbum>
       </StyledAudioPlayerTrackPlayContain>
@@ -52,5 +52,3 @@ function PlayTrackBar() {
     </StyledAudioPlayerTrackPlay>
   );
 }
-
-export default PlayTrackBar;

@@ -1,4 +1,4 @@
-import MyProfile from "../MyProfile/MyProfile";
+import { MyProfile } from "../MyProfile/MyProfile";
 import {
   StyledSidebarBlock,
   StyledSidebarImg,
@@ -9,7 +9,7 @@ import {
   StyledSidebarSkeletons,
 } from "./SidebarStyled";
 
-function Sidebar({ isLoading }) {
+export function Sidebar({ isLoading }) {
   return (
     <StyledSidebarMain>
       <MyProfile />
@@ -56,5 +56,3 @@ function Sidebar({ isLoading }) {
     </StyledSidebarMain>
   );
 }
-
-export default Sidebar;

@@ -3,7 +3,7 @@ import {
   StyledNavMenuBurgerLine,
 } from "../NavMenu/NavMenuStyled";
 
-function NavBurgerButton({ handleClick }) {
+export function NavBurgerButton({ handleClick }) {
   return (
     <StyledNavMenuBurger onClick={handleClick} role="button">
       <StyledNavMenuBurgerLine />
@@ -12,5 +12,3 @@ function NavBurgerButton({ handleClick }) {
     </StyledNavMenuBurger>
   );
 }
-
-export default NavBurgerButton;

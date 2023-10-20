@@ -2,9 +2,9 @@ import {
   StyledSidebarPersonal,
   StyledSidebarPersonalName,
 } from "../Sidebar/SidebarStyled";
-import SidebarLogOutButton from "../SidebarLogOutButton/SidebarLogOutButton";
+import { SidebarLogOutButton } from "../SidebarLogOutButton/SidebarLogOutButton";
 
-function MyProfile() {
+export function MyProfile() {
   return (
     <StyledSidebarPersonal>
       <StyledSidebarPersonalName>Sergey.Ivanov</StyledSidebarPersonalName>
@@ -12,5 +12,3 @@ function MyProfile() {
     </StyledSidebarPersonal>
   );
 }
-
-export default MyProfile;

@@ -1,6 +1,6 @@
 import { StyledSidebarIcon } from "../Sidebar/SidebarStyled";
 
-function SidebarLogOutButton() {
+export function SidebarLogOutButton() {
   return (
     <StyledSidebarIcon>
       <svg alt="logout">
@@ -9,5 +9,3 @@ function SidebarLogOutButton() {
     </StyledSidebarIcon>
   );
 }
-
-export default SidebarLogOutButton;

@@ -5,7 +5,7 @@ import {
   StyledTracklistCenterblockFilterDropdownToggle,
 } from "../Tracklist/TracklistStyled";
 
-function ButtonsForFilter({
+export function ButtonsForFilter({
   buttonName,
   setVisibility,
   isVisible,
@@ -38,5 +38,3 @@ function ButtonsForFilter({
     </StyledTracklistCenterblockFilterBox>
   );
 }
-
-export default ButtonsForFilter;
