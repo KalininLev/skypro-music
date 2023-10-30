@@ -7,7 +7,7 @@ import {
   StyledAudioPlayerVolumeProgressLine,
 } from "../AudioPlayer/AudioPlayerStyled";
 
-function VolumeBar() {
+export function VolumeBar() {
   return (
     <StyledAudioBarVolumeBlock>
       <StyledAudioPlayerVolumeContent>
@@ -27,5 +27,3 @@ function VolumeBar() {
     </StyledAudioBarVolumeBlock>
   );
 }
-
-export default VolumeBar;

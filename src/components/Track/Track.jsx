@@ -16,7 +16,7 @@ import {
   StyledTracklistPlaylistTrackTitleText,
 } from "../Tracklist/TracklistStyled";
 
-function Track(props) {
+export function Track(props) {
   return (
     <StyledTracklistPlaylistItem>
       <StyledTracklistPlaylistTrack>
@@ -33,12 +33,13 @@ function Track(props) {
           >
             <StyledTracklistPlaylistTrackTitleLink
               style={props.isLoading ? { color: "transparent" } : {}}
-              href="http://"
+              onClick={() => {
+                props.setPlay(true);
+                props.setTrack({ name: props.song, author: props.author });
+              }}
             >
               {props.isLoading ? "waitingTrack" : props.song}{" "}
-              <StyledTracklistPlaylistTrackTitleSpan>
-                {props.isLoading ? "" : props.moreInfo}
-              </StyledTracklistPlaylistTrackTitleSpan>
+              <StyledTracklistPlaylistTrackTitleSpan />
             </StyledTracklistPlaylistTrackTitleLink>
           </StyledTracklistPlaylistTrackTitleText>
         </StyledTracklistPlaylistTrackTitle>
@@ -74,5 +75,3 @@ function Track(props) {
     </StyledTracklistPlaylistItem>
   );
 }
-
-export default Track;

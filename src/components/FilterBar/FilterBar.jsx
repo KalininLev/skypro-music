@@ -1,43 +1,26 @@
 import { useState } from "react";
-import ButtonsForFilter from "../FilterButton/FilterButton";
-import getTracksList from "../../modules/getTrackList";
+import { ButtonsForFilter } from "../FilterButton/FilterButton";
 import {
   StyledTracklistCenterblockFilter,
   StyledTracklistCenterblockFilterTitle,
   StyledTracklistCenterblockFilterWrapper,
 } from "../Tracklist/TracklistStyled";
 
-function FilterBar() {
-  const authorList = getTracksList().map((track) => ({
+export function FilterBar({ trackList }) {
+  const authorList = trackList.map((track) => ({
     info: track.author,
     id: track.id,
   }));
 
-  const yearsList = [
-    { id: "0", info: "2023" },
-    { id: "1", info: "2022" },
-    { id: "2", info: "2021" },
-    { id: "3", info: "2020" },
-    { id: "4", info: "2019" },
-    { id: "5", info: "2018" },
-    { id: "6", info: "2017" },
-    { id: "7", info: "2016" },
-    { id: "8", info: "2015" },
-    { id: "9", info: "2014" },
-    { id: "10", info: "2013" },
-    { id: "11", info: "2012" },
-  ];
+  const yearsList = trackList.map((track) => ({
+    info: track.release_date,
+    id: track.id,
+  }));
 
-  const genresList = [
-    { id: "0", info: "Хип-хоп" },
-    { id: "1", info: "Классика" },
-    { id: "2", info: "Рок" },
-    { id: "3", info: "Танцевальная" },
-    { id: "4", info: "Кантри" },
-    { id: "5", info: "Блюз" },
-    { id: "6", info: "Регги" },
-    { id: "7", info: "Фанк" },
-  ];
+  const genresList = trackList.map((track) => ({
+    info: track.genre,
+    id: track.id,
+  }));
 
   const [isVisibleFirst, setVisibilityFirst] = useState(false);
   const [isVisibleSecond, setVisibilitySecond] = useState(false);
@@ -104,5 +87,3 @@ function FilterBar() {
     </StyledTracklistCenterblockFilter>
   );
 }
-
-export default FilterBar;

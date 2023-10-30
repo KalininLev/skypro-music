@@ -1,6 +1,6 @@
-import PlayTrackBar from "../PlayTrackBar/PlayTrackBar";
-import PlayerControls from "../PlayerControls/PlayerControls";
-import VolumeBar from "../VolumeBar/VolumeBar";
+import { PlayTrackBar } from "../PlayTrackBar/PlayTrackBar";
+import { PlayerControls } from "../PlayerControls/PlayerControls";
+import { VolumeBar } from "../VolumeBar/VolumeBar";
 import {
   StyledAudioBar,
   StyledAudioBarContent,
@@ -9,7 +9,7 @@ import {
   StyledAudioBarPlayerProgress,
 } from "./AudioPlayerStyled.js";
 
-function AudioPlayer() {
+export function AudioPlayer({ track }) {
   return (
     <StyledAudioBar>
       <StyledAudioBarContent>
@@ -17,7 +17,7 @@ function AudioPlayer() {
         <StyledAudioBarPlayerBlock>
           <StyledAudioBarPlayer>
             <PlayerControls />
-            <PlayTrackBar />
+            <PlayTrackBar track={track} />
           </StyledAudioBarPlayer>
           <VolumeBar />
         </StyledAudioBarPlayerBlock>
@@ -25,5 +25,3 @@ function AudioPlayer() {
     </StyledAudioBar>
   );
 }
-
-export default AudioPlayer;

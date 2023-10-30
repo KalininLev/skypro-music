@@ -1,7 +1,7 @@
 import { StyledAudioPlayerControls } from "../AudioPlayer/AudioPlayerStyled";
-import PlayerButton from "../PlayerButton/PlayerButton";
+import { PlayerButton } from "../PlayerButton/PlayerButton";
 
-function PlayerControls() {
+export function PlayerControls() {
   return (
     <StyledAudioPlayerControls>
       <PlayerButton buttonName="prev" />
@@ -12,5 +12,3 @@ function PlayerControls() {
     </StyledAudioPlayerControls>
   );
 }
-
-export default PlayerControls;
