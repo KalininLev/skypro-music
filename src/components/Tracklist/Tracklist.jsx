@@ -14,7 +14,7 @@ import {
 } from "./TracklistStyled";
 
 export function Tracklist({
-  isLoading,
+  $isLoading,
   setLoadingStatus,
   trackList,
   setTrackList,
@@ -44,7 +44,7 @@ export function Tracklist({
               </StyledCol04>
             </StyledTracklistCenterblockContentTitle>
             <Playlist
-              isLoading={isLoading}
+              isLoading={$isLoading}
               trackList={trackList}
               setTrackList={setTrackList}
               setLoadingStatus={setLoadingStatus}

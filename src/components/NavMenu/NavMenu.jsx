@@ -25,9 +25,9 @@ export function NavMenu() {
       <StyledNavMenu>
         {isVilible && (
           <StyledNavMenuList>
-            <NavButton Name="Главное" Link="/" />
-            <NavButton Name="Мой плейлист" Link="/favorites" />
-            <NavButton Name="Войти" Link="/login" />
+            <NavButton $buttonName="Главное" Link="/" />
+            <NavButton $buttonName="Мой плейлист" Link="/favorites" />
+            <NavButton $buttonName="Войти" Link="/login" />
           </StyledNavMenuList>
         )}
       </StyledNavMenu>

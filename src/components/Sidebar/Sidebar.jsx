@@ -9,14 +9,14 @@ import {
   StyledSidebarSkeletons,
 } from "./SidebarStyled";
 
-export function Sidebar({ isLoading }) {
+export function Sidebar({ $isLoading }) {
   return (
     <StyledSidebarMain>
       <MyProfile />
       <StyledSidebarBlock>
         <StyledSidebarList>
           <StyledSidebarItem>
-            {isLoading ? (
+            {$isLoading ? (
               <StyledSidebarSkeletons className="skeletons" />
             ) : (
               <StyledSidebarLink to="/category/day's-playlist">
@@ -28,7 +28,7 @@ export function Sidebar({ isLoading }) {
             )}
           </StyledSidebarItem>
           <StyledSidebarItem>
-            {isLoading ? (
+            {$isLoading ? (
               <StyledSidebarSkeletons className="skeletons" />
             ) : (
               <StyledSidebarLink to="/category/100-dance-hits">
@@ -40,7 +40,7 @@ export function Sidebar({ isLoading }) {
             )}
           </StyledSidebarItem>
           <StyledSidebarItem>
-            {isLoading ? (
+            {$isLoading ? (
               <StyledSidebarSkeletons className="skeletons" />
             ) : (
               <StyledSidebarLink to="/category/indie-charge">

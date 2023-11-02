@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    --progress-color: #b672ff;
   }
   
   *:before,
@@ -37,8 +38,8 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "StratosSkyeng";
     src: local("StratosSkyeng"), local("StratosSkyeng"),
-      url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
-      url("../public/fonts/StratosSkyeng.woff") format("woff");
+      url("../public/fonts/StratosSkyeng.woff2") format("embedded-opentype"),
+      url("../public/fonts/StratosSkyeng.woff") format("embedded-opentype");
     font-weight: 400;
     font-style: normal;
   }
