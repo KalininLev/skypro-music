@@ -9,11 +9,14 @@ import {
   StyledAudioBarContent,
   StyledAudioBarPlayer,
   StyledAudioBarPlayerBlock,
+  StyledAudioBarTimer,
 } from "./AudioPlayerStyled.js";
+import { audioBarTimer } from "../../modules/correctTime.js";
 
 export function AudioPlayer({ track }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooping, setIsLooping] = useState(false);
+  const [currentTrack, setCurrentTrack] = useState(track);
 
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -21,6 +24,14 @@ export function AudioPlayer({ track }) {
   const [volumeLevel, setVolumeLevel] = useState(15);
 
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (track !== currentTrack) {
+      setIsPlaying(false);
+      setCurrentTrack(track);
+      audioRef.current.load();
+    }
+  }, [track, currentTrack]);
 
   useEffect(() => {
     setDuration(audioRef.current.duration);
@@ -52,6 +63,12 @@ export function AudioPlayer({ track }) {
   return (
     <StyledAudioBar>
       <StyledAudioBarContent>
+        <StyledAudioBarTimer>
+          <div>{audioBarTimer(progress)}</div>
+          <div>
+            {duration ? audioBarTimer(duration) : audioBarTimer(track.duration)}
+          </div>
+        </StyledAudioBarTimer>
         <ProgressInput
           duration={duration}
           progress={progress}
@@ -67,7 +84,7 @@ export function AudioPlayer({ track }) {
                 setProgress(audioRef.current.currentTime);
               }}
             >
-              <source src={track.trackFile} type="audio/mp3" />
+              <source src={currentTrack.trackFile} type="audio/mp3" />
               <track src="" kind="captions" label="english_captions" />
             </StyledAudio>
             <PlayerControls

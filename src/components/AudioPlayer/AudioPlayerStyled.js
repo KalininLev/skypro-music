@@ -8,6 +8,13 @@ export const StyledAudioBar = styled.div`
   background: rgba(28, 28, 28, 0.5);
 `;
 
+export const StyledAudioBarTimer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  font-size: 12px;
+`;
+
 export const StyledAudioBarContent = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
