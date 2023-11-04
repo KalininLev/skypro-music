@@ -1,11 +1,20 @@
+import {
+  StyledPlayerBtn,
+  StyledPlayerBtnSvg,
+} from "../AudioPlayer/AudioPlayerStyled";
+
 export function PlayerButton(props) {
   return (
-    <div className={`player__btn-${props.buttonName} _btn`}>
-      <svg
-        className={`player__btn-${props.buttonName}-svg alt="${props.buttonName}`}
+    <StyledPlayerBtn
+      onClick={props.handleClick}
+      $buttonName={props.$buttonName}
+    >
+      <StyledPlayerBtnSvg
+        $isLooping={props.$isLooping}
+        $buttonName={props.$buttonName}
       >
-        <use xlinkHref={`img/icon/sprite.svg#icon-${props.buttonName}`} />
-      </svg>
-    </div>
+        <use href={`img/icon/sprite.svg#icon-${props.$buttonName}`} />
+      </StyledPlayerBtnSvg>
+    </StyledPlayerBtn>
   );
 }

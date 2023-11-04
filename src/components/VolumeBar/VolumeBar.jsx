@@ -7,7 +7,7 @@ import {
   StyledAudioPlayerVolumeProgressLine,
 } from "../AudioPlayer/AudioPlayerStyled";
 
-export function VolumeBar() {
+export function VolumeBar({ onChange, volumeLevel }) {
   return (
     <StyledAudioBarVolumeBlock>
       <StyledAudioPlayerVolumeContent>
@@ -21,6 +21,10 @@ export function VolumeBar() {
             className="_btn"
             type="range"
             name="range"
+            min="0"
+            max="100"
+            value={volumeLevel}
+            onChange={onChange}
           />
         </StyledAudioPlayerVolumeProgress>
       </StyledAudioPlayerVolumeContent>

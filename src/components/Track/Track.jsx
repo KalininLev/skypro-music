@@ -28,39 +28,44 @@ export function Track(props) {
           </StyledTracklistPlaylistTrackTitleImage>
           <StyledTracklistPlaylistTrackTitleText
             className={`track__title-text ${
-              props.isLoading ? "skeletons" : ""
+              props.$isLoading ? "skeletons" : ""
             }`}
           >
             <StyledTracklistPlaylistTrackTitleLink
               style={props.isLoading ? { color: "transparent" } : {}}
               onClick={() => {
                 props.setPlay(true);
-                props.setTrack({ name: props.song, author: props.author });
+                props.setTrack({
+                  name: props.song,
+                  author: props.author,
+                  trackFile: props.trackFile,
+                  duration: props.trackDuration,
+                });
               }}
             >
-              {props.isLoading ? "waitingTrack" : props.song}{" "}
+              {props.$isLoading ? "waitingTrack" : props.song}{" "}
               <StyledTracklistPlaylistTrackTitleSpan />
             </StyledTracklistPlaylistTrackTitleLink>
           </StyledTracklistPlaylistTrackTitleText>
         </StyledTracklistPlaylistTrackTitle>
         <StyledTracklistPlaylistTrackAuthor
-          className={`track__author ${props.isLoading ? "skeletons" : ""}`}
+          className={`track__author ${props.$isLoading ? "skeletons" : ""}`}
         >
           <StyledTracklistPlaylistTrackAuthorLink
-            style={props.isLoading ? { color: "transparent" } : {}}
+            style={props.$isLoading ? { color: "transparent" } : {}}
             href="http://"
           >
-            {props.isLoading ? "waitingAuthor" : props.author}
+            {props.$isLoading ? "waitingAuthor" : props.author}
           </StyledTracklistPlaylistTrackAuthorLink>
         </StyledTracklistPlaylistTrackAuthor>
         <StyledTracklistPlaylistTrackAlbum
-          className={`track__album ${props.isLoading ? "skeletons" : ""}`}
+          className={`track__album ${props.$isLoading ? "skeletons" : ""}`}
         >
           <StyledTracklistPlaylistTrackAlbumLink
-            style={props.isLoading ? { color: "transparent" } : {}}
+            style={props.$isLoading ? { color: "transparent" } : {}}
             href="http://"
           >
-            {props.isLoading ? "waitingAlbum" : props.album}
+            {props.$isLoading ? "waitingAlbum" : props.album}
           </StyledTracklistPlaylistTrackAlbumLink>
         </StyledTracklistPlaylistTrackAlbum>
         <StyledTracklistPlaylistTrackTime>
@@ -68,7 +73,7 @@ export function Track(props) {
             <use xlinkHref="img/icon/sprite.svg#icon-like" />
           </StyledTracklistPlaylistTrackTimeSvg>
           <StyledTracklistPlaylistTrackTimeText>
-            {props.isLoading ? "0:00" : props.time}
+            {props.$isLoading ? "0:00" : props.time}
           </StyledTracklistPlaylistTrackTimeText>
         </StyledTracklistPlaylistTrackTime>
       </StyledTracklistPlaylistTrack>
