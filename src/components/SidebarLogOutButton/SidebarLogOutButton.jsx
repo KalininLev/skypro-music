@@ -1,11 +1,22 @@
-import { StyledSidebarIcon } from "../Sidebar/SidebarStyled";
+import { useContext } from "react";
+import {
+  StyledSidebarIcon,
+  StyledSidebarIconSvg,
+} from "../Sidebar/SidebarStyled";
+import { UserContext } from "../../contexts/authorizationContexts";
 
 export function SidebarLogOutButton() {
+  const user = useContext(UserContext);
   return (
-    <StyledSidebarIcon>
-      <svg alt="logout">
+    <StyledSidebarIcon
+      handleClick={() => {
+        user.logOut();
+        user.setUser(null);
+      }}
+    >
+      <StyledSidebarIconSvg alt="logout">
         <use xlinkHref="img/icon/sprite.svg#logout" />
-      </svg>
+      </StyledSidebarIconSvg>
     </StyledSidebarIcon>
   );
 }
