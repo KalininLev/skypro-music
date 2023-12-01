@@ -1,3 +1,5 @@
+Оценочное время: Я мог работать над задачей по 2 часа в день и предполагал, что справлюсь за 4 дня (оценочное время 8ч, на деле заняло 10.5ч)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

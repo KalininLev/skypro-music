@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavButton } from "../NavMenuButtons/NavMenuButtons";
 import { NavBurgerButton } from "../NavBurgerButton/NavBurgerButton";
 import {
@@ -8,9 +8,11 @@ import {
   StyledNavMenuLogoImg,
   StyledNavMenuNav,
 } from "./NavMenuStyled";
+import { UserContext } from "../../contexts/authorizationContexts";
 
 export function NavMenu() {
   const [isVilible, setVisibility] = useState(false);
+  const user = useContext(UserContext);
 
   return (
     <StyledNavMenuNav>
@@ -27,7 +29,14 @@ export function NavMenu() {
           <StyledNavMenuList>
             <NavButton $buttonName="Главное" Link="/" />
             <NavButton $buttonName="Мой плейлист" Link="/favorites" />
-            <NavButton $buttonName="Войти" Link="/login" />
+            <NavButton
+              handleClick={() => {
+                user.logOut();
+                user.setUser(null);
+              }}
+              $buttonName="Выйти"
+              Link="/login"
+            />
           </StyledNavMenuList>
         )}
       </StyledNavMenu>

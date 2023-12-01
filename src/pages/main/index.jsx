@@ -3,7 +3,7 @@ import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
 import { NavMenu } from "../../components/NavMenu/NavMenu";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { Tracklist } from "../../components/Tracklist/Tracklist";
-import { getTrackList } from "../../api";
+import { getTrackList } from "../../modules/api";
 import { trackListForSkeleton } from "../../modules/constTrackList";
 import {
   StyledApp,

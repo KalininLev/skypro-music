@@ -98,9 +98,13 @@ export const StyledSidebarPersonalName = styled.p`
 
 //SidebarLogOutButton.jsx
 export const StyledSidebarIcon = styled.div`
-  width: 43px;
-  height: 43px;
+  width: 40px;
+  height: 40px;
   background-color: #313131;
   border-radius: 50%;
   cursor: pointer;
+`;
+
+export const StyledSidebarIconSvg = styled.svg`
+  background-color: transparent;
 `;
