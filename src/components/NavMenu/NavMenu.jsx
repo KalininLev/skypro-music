@@ -1,45 +1,23 @@
-import { useState, useContext } from "react";
-import { NavButton } from "../NavMenuButtons/NavMenuButtons";
-import { NavBurgerButton } from "../NavBurgerButton/NavBurgerButton";
-import {
-  StyledNavMenu,
-  StyledNavMenuList,
-  StyledNavMenuLogo,
-  StyledNavMenuLogoImg,
-  StyledNavMenuNav,
-} from "./NavMenuStyled";
-import { UserContext } from "../../contexts/authorizationContexts";
+import ShowMenu from "../NavShowMenu/NavShowMenu.jsx";
+import { useState } from "react";
+import * as S from "./NavMenu.styles.js";
 
-export function NavMenu() {
-  const [isVilible, setVisibility] = useState(false);
-  const user = useContext(UserContext);
+export default function MainNav({ handleLogout }) {
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisibility = () => setVisible(!visible);
 
   return (
-    <StyledNavMenuNav>
-      <StyledNavMenuLogo>
-        <StyledNavMenuLogoImg src="img/logo.png" alt="logo" />
-      </StyledNavMenuLogo>
-      <NavBurgerButton
-        handleClick={() => {
-          setVisibility(!isVilible);
-        }}
-      />
-      <StyledNavMenu>
-        {isVilible && (
-          <StyledNavMenuList>
-            <NavButton $buttonName="Главное" Link="/" />
-            <NavButton $buttonName="Мой плейлист" Link="/favorites" />
-            <NavButton
-              handleClick={() => {
-                user.logOut();
-                user.setUser(null);
-              }}
-              $buttonName="Выйти"
-              Link="/login"
-            />
-          </StyledNavMenuList>
-        )}
-      </StyledNavMenu>
-    </StyledNavMenuNav>
+    <S.MainNav>
+      <S.NavLogo>
+        <S.LogoImg src="../img/logo.png" alt="logo" />
+      </S.NavLogo>
+      <S.NavBurger onClick={toggleVisibility}>
+        <S.BurgerLine></S.BurgerLine>
+        <S.BurgerLine></S.BurgerLine>
+        <S.BurgerLine></S.BurgerLine>
+      </S.NavBurger>
+      {visible && <ShowMenu handleLogout={handleLogout} />}
+    </S.MainNav>
   );
 }

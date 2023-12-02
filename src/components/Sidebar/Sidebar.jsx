@@ -1,58 +1,15 @@
-import { MyProfile } from "../MyProfile/MyProfile";
-import {
-  StyledSidebarBlock,
-  StyledSidebarImg,
-  StyledSidebarItem,
-  StyledSidebarLink,
-  StyledSidebarList,
-  StyledSidebarMain,
-  StyledSidebarSkeletons,
-} from "./SidebarStyled";
+import SidebarList from "../SidebarListContent/SidebarListContent.jsx";
+import SkeletonSidebarList from "../skeleton/SkeletonSidebar.jsx";
+import * as S from "./Sidebar.styles.js";
+import SidebarPersonal from "./SidebarPersonal.jsx";
 
-export function Sidebar({ $isLoading }) {
+export default function MainSidebar({ isLoaded, handleLogout }) {
   return (
-    <StyledSidebarMain>
-      <MyProfile />
-      <StyledSidebarBlock>
-        <StyledSidebarList>
-          <StyledSidebarItem>
-            {$isLoading ? (
-              <StyledSidebarSkeletons className="skeletons" />
-            ) : (
-              <StyledSidebarLink to="/category/day's-playlist">
-                <StyledSidebarImg
-                  src="img/playlist01.png"
-                  alt="day's playlist"
-                />
-              </StyledSidebarLink>
-            )}
-          </StyledSidebarItem>
-          <StyledSidebarItem>
-            {$isLoading ? (
-              <StyledSidebarSkeletons className="skeletons" />
-            ) : (
-              <StyledSidebarLink to="/category/100-dance-hits">
-                <StyledSidebarImg
-                  src="img/playlist02.png"
-                  alt="day's playlist"
-                />
-              </StyledSidebarLink>
-            )}
-          </StyledSidebarItem>
-          <StyledSidebarItem>
-            {$isLoading ? (
-              <StyledSidebarSkeletons className="skeletons" />
-            ) : (
-              <StyledSidebarLink to="/category/indie-charge">
-                <StyledSidebarImg
-                  src="img/playlist03.png"
-                  alt="day's playlist"
-                />
-              </StyledSidebarLink>
-            )}
-          </StyledSidebarItem>
-        </StyledSidebarList>
-      </StyledSidebarBlock>
-    </StyledSidebarMain>
+    <S.MainSidebar>
+      <SidebarPersonal handleLogout={handleLogout} />
+      <S.SidebarBlock>
+        {isLoaded ? <SkeletonSidebarList /> : <SidebarList />}
+      </S.SidebarBlock>
+    </S.MainSidebar>
   );
 }
