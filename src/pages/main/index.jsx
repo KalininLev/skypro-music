@@ -1,59 +1,59 @@
-import { useEffect, useState } from "react";
-import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
-import { NavMenu } from "../../components/NavMenu/NavMenu";
-import { Sidebar } from "../../components/Sidebar/Sidebar";
-import { Tracklist } from "../../components/Tracklist/Tracklist";
-import { getTrackList } from "../../modules/api";
-import { trackListForSkeleton } from "../../modules/constTrackList";
+import { useState, useEffect } from "react";
+import MainNav from "../../components/NavMenu/NavMenu.jsx";
+import MainTracklist from "../../components/TrackList/TrackList.jsx";
+import MainSidebar from "../../components/Sidebar/Sidebar.jsx";
 import {
-  StyledApp,
-  StyledAppContainer,
-  StyledAppMain,
-  StyledAppWrapper,
-} from "./StyledApp";
+  setAllTracks,
+  setCurrentPage,
+  setCurrentPlaylist,
+  setTrack,
+} from "../../Store/slices/trackSlice.js";
+import * as S from "./styles.js";
+import { useDispatch } from "react-redux";
+import { useGetTrackQuery } from "../../services/trackQuery.js";
 
-export function MainPage() {
-  const [isLoading, setLoadingStatus] = useState(true);
-  const [trackList, setTrackList] = useState(trackListForSkeleton);
-  const [isPlayed, setPlay] = useState(false);
-  const [track, setTrack] = useState(null);
-  const [isError, setError] = useState(false);
+export const Main = ({ handleLogout }) => {
+  const [isLoaded, setIsLoaded] = useState(true);
+  const [addTrackError, setAddTrackError] = useState(null);
+
+  const dispatch = useDispatch();
+  const { data = [] } = useGetTrackQuery();
 
   useEffect(() => {
-    setLoadingStatus(true);
+    try {
+      dispatch(setAllTracks(data));
+      dispatch(setCurrentPage("Main"));
+    } catch (error) {
+      setAddTrackError(error.message);
+    } finally {
+      setIsLoaded(false);
+    }
+  });
 
-    getTrackList()
-      .then((tracks) => {
-        setTrackList(tracks);
-        setLoadingStatus(false);
-      })
-      .catch(() => {
-        setLoadingStatus(false);
-        setError(true);
-      });
-  }, []);
+  const handleTrackClick = (track, index) => {
+    dispatch(setTrack({ track, index }));
+    dispatch(setCurrentPlaylist());
+  };
 
   return (
-    <StyledApp>
-      <StyledAppWrapper>
-        <StyledAppContainer>
-          <StyledAppMain>
-            <NavMenu />
-            <Tracklist
-              isError={isError}
-              trackList={trackList}
-              setTrackList={setTrackList}
-              $isLoading={isLoading}
-              setLoadingStatus={setLoadingStatus}
-              setPlay={setPlay}
-              setTrack={setTrack}
+    <>
+      <S.Wrapper>
+        <S.Container>
+          <S.Main>
+            <MainNav handleLogout={handleLogout} />
+            <MainTracklist
+              isLoaded={isLoaded}
+              handleTrackClick={handleTrackClick}
+              addTrackError={addTrackError}
             />
-            <Sidebar $isLoading={isLoading} />
-          </StyledAppMain>
-          {isPlayed && <AudioPlayer track={track} />}
-          <footer className="footer" />
-        </StyledAppContainer>
-      </StyledAppWrapper>
-    </StyledApp>
+            <MainSidebar isLoaded={isLoaded} handleLogout={handleLogout} />
+          </S.Main>
+          {/* {currentTrack ? (
+            <BarPlayer isLoaded={isLoaded} />
+          ) : null} */}
+          <S.Footer></S.Footer>
+        </S.Container>
+      </S.Wrapper>
+    </>
   );
-}
+};

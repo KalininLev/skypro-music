@@ -1,35 +1,71 @@
-import { StyledAudioPlayerControls } from "../AudioPlayer/AudioPlayerStyled";
-import { PlayerButton } from "../PlayerButton/PlayerButton";
+import { useDispatch } from "react-redux";
+import * as S from "./PlayerControls.styles.js";
+import {
+  nextTrack,
+  playTrack,
+  prevTrack,
+  toggleSuffled,
+} from "../../Store/slices/trackSlice.js";
+import { useState } from "react";
 
-export function PlayerControls({
+export default function PlayerControlBtn({
+  toggleRepeat,
+  isRepeat,
   togglePlay,
   isPlaying,
-  toggleLoop,
-  $isLooping,
+  setIsLiked,
 }) {
+  const dispatch = useDispatch();
+  const [isShuffle, setIsShuffle] = useState(false);
+
+  const clickPrev = () => {
+    dispatch(prevTrack());
+    dispatch(playTrack());
+    setIsLiked(false);
+  };
+
+  const clickNext = () => {
+    dispatch(nextTrack());
+    dispatch(playTrack());
+    setIsLiked(false);
+  };
+
+  const clickShuffle = () => {
+    dispatch(toggleSuffled());
+    setIsShuffle(!isShuffle);
+  };
+
   return (
-    <StyledAudioPlayerControls>
-      <PlayerButton
-        $buttonName="prev"
-        handleClick={() => alert("Еще не реализовано")}
-      />
-      <PlayerButton
-        handleClick={togglePlay}
-        $buttonName={`${isPlaying ? "pause" : "play"}`}
-      />
-      <PlayerButton
-        $buttonName="next"
-        handleClick={() => alert("Еще не реализовано")}
-      />
-      <PlayerButton
-        $buttonName="repeat"
-        handleClick={toggleLoop}
-        $isLooping={$isLooping}
-      />
-      <PlayerButton
-        $buttonName="shuffle"
-        handleClick={() => alert("Еще не реализовано")}
-      />
-    </StyledAudioPlayerControls>
+    <S.PlayerControls>
+      <S.PlayerBtnPrev>
+        <S.PlayerBtnPrevSvg alt="prev" onClick={clickPrev}>
+          <use xlinkHref="../img/icon/sprite.svg#icon-prev"></use>
+        </S.PlayerBtnPrevSvg>
+      </S.PlayerBtnPrev>
+      <S.PlayerBtnPlay className="_btn" onClick={togglePlay}>
+        <S.PlayerBtnPlaySvg alt={!isPlaying ? "play" : "pause"}>
+          {!isPlaying ? (
+            <use xlinkHref="../img/icon/sprite.svg#icon-play"></use>
+          ) : (
+            <use xlinkHref="../img/icon/sprite.svg#icon-pause"></use>
+          )}
+        </S.PlayerBtnPlaySvg>
+      </S.PlayerBtnPlay>
+      <S.PlayerBtnNext>
+        <S.PlayerBtnNextSvg alt="next" onClick={clickNext}>
+          <use xlinkHref="../img/icon/sprite.svg#icon-next"></use>
+        </S.PlayerBtnNextSvg>
+      </S.PlayerBtnNext>
+      <S.PlayerBtnRepeat className="_btn-icon" onClick={toggleRepeat}>
+        <S.PlayerBtnRepeatSvg alt="repeat" $repeat={isRepeat}>
+          <use xlinkHref="../img/icon/sprite.svg#icon-repeat"></use>
+        </S.PlayerBtnRepeatSvg>
+      </S.PlayerBtnRepeat>
+      <S.PlayerBtnShuffle className="_btn-icon" onClick={clickShuffle}>
+        <S.PlayerBtnShuffleSvg alt="shuffle" $shuffle={isShuffle}>
+          <use xlinkHref="../img/icon/sprite.svg#icon-shuffle"></use>
+        </S.PlayerBtnShuffleSvg>
+      </S.PlayerBtnShuffle>
+    </S.PlayerControls>
   );
 }

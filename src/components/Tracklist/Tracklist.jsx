@@ -1,59 +1,111 @@
-import { FilterBar } from "../FilterBar/FilterBar";
-import { Playlist } from "../Playlist/Playlist";
-import { SearchBar } from "../SearchBar/SearchBar";
-import {
-  StyledCol01,
-  StyledCol02,
-  StyledCol03,
-  StyledCol04,
-  StyledTracklistCenterblockContent,
-  StyledTracklistCenterblockContentTitle,
-  StyledTracklistCenterblockContentTitleSvg,
-  StyledTracklistCenterblockH2,
-  StyledTracklistCenterblockMain,
-} from "./TracklistStyled";
+import PlaylistItem from "../PlaylistItem/PlaylistItem.jsx";
+import Filter from "../Filter/Filter.jsx";
+import CenterblockSearch from "./centerblockSearch.jsx";
+import * as S from "./TrackList.styles.js";
+import ContentTitle from "./ContentTitle.jsx";
+import { useSelector } from "react-redux";
+import { allTracksSelector } from "../../Store/selectors/track.js";
+import { useMemo, useState } from "react";
 
-export function Tracklist({
-  $isLoading,
-  setLoadingStatus,
-  trackList,
-  setTrackList,
-  setPlay,
-  setTrack,
-  isError,
+export default function MainTracklist({
+  isLoaded,
+  handleTrackClick,
+  addTrackError,
 }) {
+  const tracks = useSelector(allTracksSelector);
+  const auth = JSON.parse(localStorage.getItem("user"));
+
+  // строка поиска
+  const [search, setSearch] = useState("");
+  // сортировка
+  const [Years, setYears] = useState("По умолчанию");
+  // фильтры
+  const [authorActiv, setAuthorActiv] = useState([]);
+  const [genreActiv, setGenreActiv] = useState([]);
+
+  // ф-ция выбора авторов
+  const handleAuthorClick = (value) => {
+    if (authorActiv.includes(value)) {
+      setAuthorActiv(authorActiv.filter((item) => item !== value));
+    } else {
+      setAuthorActiv([...authorActiv, value]);
+    }
+  };
+
+  // ф-ция выбора жанров
+  const handleGenreClick = (value) => {
+    if (genreActiv.includes(value)) {
+      setGenreActiv(genreActiv.filter((item) => item !== value));
+    } else {
+      setGenreActiv([...genreActiv, value]);
+    }
+  };
+
+  // useMemo как useEffect только с const
+  const searchTracks = useMemo(() => {
+    let playlist = [...tracks];
+
+    if (search !== "") {
+      playlist = playlist.filter((track) =>
+        track.name.toLowerCase().includes(search)
+      );
+    }
+    if (Years === "Сначала новые") {
+      playlist = playlist.sort(
+        (a, b) => new Date(b.release_date) - new Date(a.release_date)
+      );
+    }
+    if (Years === "Сначала старые") {
+      playlist = playlist.sort(
+        (a, b) => new Date(a.release_date) - new Date(b.release_date)
+      );
+    }
+    if (authorActiv.length > 0) {
+      playlist = playlist.filter((track) => authorActiv.includes(track.author));
+    }
+    if (genreActiv.length > 0) {
+      playlist = playlist.filter((track) => genreActiv.includes(track.genre));
+    }
+    return playlist;
+  }, [tracks, search, Years, authorActiv, genreActiv]);
+
   return (
-    <StyledTracklistCenterblockMain>
-      <SearchBar />
-      <StyledTracklistCenterblockH2>Треки</StyledTracklistCenterblockH2>
-      <FilterBar trackList={trackList} />
-      <StyledTracklistCenterblockContent>
-        {isError ? (
-          <div>Не удалось загрузить плейлист, попробуйте позже!</div>
+    <S.MainCenterblock>
+      <CenterblockSearch onChange={(value) => setSearch(value)} />
+      <S.CenterblockH2>Треки</S.CenterblockH2>
+      <Filter
+        tracks={tracks}
+        Years={Years}
+        setYears={setYears}
+        handleAuthorClick={handleAuthorClick}
+        handleGenreClick={handleGenreClick}
+        authorActiv={authorActiv}
+        genreActiv={genreActiv}
+      />
+      <S.CenterblockContent>
+        <ContentTitle />
+        {addTrackError ? (
+          `Не удалось загрузить плейлист, попробуйте позже. ${addTrackError}`
         ) : (
-          <>
-            {" "}
-            <StyledTracklistCenterblockContentTitle>
-              <StyledCol01>Трек</StyledCol01>
-              <StyledCol02>ИСПОЛНИТЕЛЬ</StyledCol02>
-              <StyledCol03>АЛЬБОМ</StyledCol03>
-              <StyledCol04>
-                <StyledTracklistCenterblockContentTitleSvg alt="time">
-                  <use xlinkHref="img/icon/sprite.svg#icon-watch" />
-                </StyledTracklistCenterblockContentTitleSvg>
-              </StyledCol04>
-            </StyledTracklistCenterblockContentTitle>
-            <Playlist
-              isLoading={$isLoading}
-              trackList={trackList}
-              setTrackList={setTrackList}
-              setLoadingStatus={setLoadingStatus}
-              setPlay={setPlay}
-              setTrack={setTrack}
-            />
-          </>
+          <S.ContentPlaylist>
+            {searchTracks.map((track, index) => (
+              <PlaylistItem
+                isLoaded={isLoaded}
+                onClick={() => handleTrackClick(track, index)}
+                id={track.id}
+                name={track.name}
+                remix={track.remix}
+                author={track.author}
+                album={track.album}
+                seconds={track.duration_in_seconds}
+                isLiked={(track.stared_user ?? []).find(
+                  ({ id }) => id === auth.id
+                )}
+              />
+            ))}
+          </S.ContentPlaylist>
         )}
-      </StyledTracklistCenterblockContent>
-    </StyledTracklistCenterblockMain>
+      </S.CenterblockContent>
+    </S.MainCenterblock>
   );
 }

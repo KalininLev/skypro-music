@@ -1,28 +1,28 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { AppGlobal } from "./App.styles.global.js";
 import { AppRoutes } from "./routes";
-import { UserContext } from "./contexts/authorizationContexts";
+import { UserContext } from "./Context/UserContext.js";
+import { useSelector } from "react-redux";
+import { trackPlaySelector } from "./Store/selectors/track.js";
+import BarPlayer from "./components/AudioPlayer/AudioPlayer.jsx";
 
-export function App() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+function App() {
+  const [user, setUser] = useState(localStorage.getItem("user") || null);
+  const currentTrack = useSelector(trackPlaySelector);
 
-  const navigate = useNavigate();
-
-  const logOut = () => {
+  const handleLogout = () => {
+    setUser(null);
     localStorage.removeItem("user");
-    navigate("/login", { replace: true });
-  };
-
-  const logIn = (email, password) => {
-    localStorage.setItem("user", JSON.stringify({ userName: email, password }));
-    navigate("/", { replace: true });
+    window.location.reload(); // перезагрузка страницы
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser, logIn, logOut }}>
-      <AppRoutes />
+    <UserContext.Provider value={{ user, setUser }}>
+      <AppGlobal />
+      <AppRoutes user={user} setUser={setUser} handleLogout={handleLogout} />
+      {currentTrack ? <BarPlayer currentTrack={currentTrack} /> : null}
     </UserContext.Provider>
   );
 }
+
+export default App;
