@@ -23,7 +23,7 @@ export default function MainTracklist({
   const [authorActiv, setAuthorActiv] = useState([]);
   const [genreActiv, setGenreActiv] = useState([]);
 
-  // функция выбора авторов
+  // ф-ция выбора авторов
   const handleAuthorClick = (value) => {
     if (authorActiv.includes(value)) {
       setAuthorActiv(authorActiv.filter((item) => item !== value));
@@ -32,7 +32,7 @@ export default function MainTracklist({
     }
   };
 
-  // функция выбора жанров
+  // ф-ция выбора жанров
   const handleGenreClick = (value) => {
     if (genreActiv.includes(value)) {
       setGenreActiv(genreActiv.filter((item) => item !== value));
