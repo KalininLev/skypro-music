@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Categories } from "../../components/SidebarListContent/SidebarListContent.jsx";
 import MainNav from "../../components/NavMenu/NavMenu.jsx";
-import CenterblockSearch from "../../components/TrackList/Tracklist.jsx";
-import ContentTitle from "../../components/TrackList/ContentTitle.jsx";
+import CenterblockSearch from "../../components/Tracklist/Tracklist.jsx";
+import ContentTitle from "../../components/Tracklist/ContentTitle.jsx";
 import SidebarPersonal from "../../components/Sidebar/SidebarPersonal.jsx";
 import PlaylistItem from "../../components/PlaylistItem/PlaylistItem.jsx";
 import * as S from "./styles.js";
