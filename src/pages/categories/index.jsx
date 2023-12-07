@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import { Categories } from "../../components/SidebarListContent/SidebarListContent";
-import MainNav from "../../components/NavMenu/NavMenu";
-import CenterblockSearch from "../../components/TrackList/centerblockSearch";
-import ContentTitle from "../../components/TrackList/ContentTitle";
-import SidebarPersonal from "../../components/Sidebar/SidebarPersonal";
+import { Categories } from "../../components/SidebarListContent/SidebarListContent.jsx";
+import MainNav from "../../components/NavMenu/NavMenu.jsx";
+import CenterblockSearch from "../../components/TrackList/Tracklist.jsx";
+import ContentTitle from "../../components/TrackList/ContentTitle.jsx";
+import SidebarPersonal from "../../components/Sidebar/SidebarPersonal.jsx";
 import PlaylistItem from "../../components/PlaylistItem/PlaylistItem.jsx";
-import * as S from "./styles";
+import * as S from "./styles.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetCategoriesIdQuery } from "../../services/trackQuery";
 import {

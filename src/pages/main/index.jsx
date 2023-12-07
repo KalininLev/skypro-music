@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MainNav from "../../components/NavMenu/NavMenu.jsx";
-import MainTracklist from "../../components/TrackList/TrackList.jsx";
+import MainTracklist from "../../components/TrackList/Tracklist.jsx";
 import MainSidebar from "../../components/Sidebar/Sidebar.jsx";
 import {
   setAllTracks,
