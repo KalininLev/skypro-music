@@ -1,6 +1,6 @@
 import MainNav from "../../components/NavMenu/NavMenu";
 import MainSidebar from "../../components/Sidebar/Sidebar";
-import CenterblockSearch from "../../components/Tracklist/Tracklist.jsx";
+import CenterblockSearch from "../../components/Tracklist/centerblockSearch.jsx";
 import ContentTitle from "../../components/Tracklist/ContentTitle.jsx";
 import PlaylistItem from "../../components/PlaylistItem/PlaylistItem.jsx";
 import * as S from "./styles";

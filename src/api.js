@@ -1,10 +1,9 @@
+const baseURL = "https://skypro-music-api.skyeng.tech";
+
 export async function getTracks() {
-  const response = await fetch(
-    "https://skypro-music-api.skyeng.tech/catalog/track/all/",
-    {
-      method: "GET",
-    }
-  );
+  const response = await fetch(`${baseURL}/catalog/track/all/`, {
+    method: "GET",
+  });
   if (!response.ok) {
     throw new Error("Ошибка сервера");
   }
@@ -13,21 +12,18 @@ export async function getTracks() {
 }
 
 export async function getUserSignup({ email, password, username }) {
-  const response = await fetch(
-    "https://skypro-music-api.skyeng.tech/user/signup/",
-    {
-      method: "POST",
-      body: JSON.stringify({
-        email,
-        password,
-        username,
-      }),
-      headers: {
-        // API требует обязательного указания заголовка content-type, так апи понимает что мы посылаем ему json строчку в теле запроса
-        "content-type": "application/json",
-      },
-    }
-  );
+  const response = await fetch(`${baseURL}/user/signup/`, {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      password,
+      username,
+    }),
+    headers: {
+      // API требует обязательного указания заголовка content-type, так апи понимает что мы посылаем ему json строчку в теле запроса
+      "content-type": "application/json",
+    },
+  });
 
   if (response.status === 400) {
     const error = await response.json();
@@ -41,19 +37,16 @@ export async function getUserSignup({ email, password, username }) {
 }
 
 export async function getUserLogin({ email, password }) {
-  const response = await fetch(
-    "https://skypro-music-api.skyeng.tech/user/login/",
-    {
-      method: "POST",
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-      headers: {
-        "content-type": "application/json",
-      },
-    }
-  );
+  const response = await fetch(`${baseURL}/user/login/`, {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
 
   if (response.status === 400 || response.status === 401) {
     const error = await response.json();
@@ -67,19 +60,16 @@ export async function getUserLogin({ email, password }) {
 }
 
 export async function getToken({ email, password }) {
-  const response = await fetch(
-    "https://skypro-music-api.skyeng.tech/user/token/",
-    {
-      method: "POST",
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-      headers: {
-        "content-type": "application/json",
-      },
-    }
-  );
+  const response = await fetch(`${baseURL}/user/token/`, {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
 
   if (response.status === 400 || response.status === 401) {
     const error = await response.json();
